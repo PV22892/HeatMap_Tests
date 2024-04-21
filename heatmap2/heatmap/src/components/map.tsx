@@ -7,8 +7,17 @@ import { districts } from "../app/data";
 import jsonData from "../app/dummy_data.json";
 import L from "leaflet";
 
+interface MarkerData {
+  id: number;
+  lat: number;
+  lng: number;
+  district: string;
+  for_sale: boolean;
+  price: number;
+}
+
 // Define the custom green circle icon
-const greenIcon = new L.divIcon({
+const greenIcon = L.divIcon({
   className: "custom-icon",
   iconSize: [12, 12],
   iconAnchor: [6, 6],

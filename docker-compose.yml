@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  backend:
+    image: backend-image
+    ports:
+      - 8000:8000
+    container_name: backend-container
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+  database:
+    image: database-image
+    ports:
+      - "5431:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    container_name: database-container
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+
+volumes:
+  db-data:
